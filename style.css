@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap');
-
 /* ===================================================== */
 /* CASA DO REZO - DESIGN TOKENS                           */
 /* ===================================================== */
@@ -501,6 +498,11 @@ ul {
     width: 100%;
 }
 
+.btn-primary--success,
+.btn-primary--success:hover {
+    background-color: #27ae60;
+}
+
 .essencia__content .btn-primary {
     margin-top: 16px;
 }
@@ -742,11 +744,13 @@ ul {
     margin-bottom: 60px;
 }
 
-.footer__logo img {
-    width: 100px;
-    height: auto;
+.footer__logo {
+    font-family: "Cinzel", serif;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    color: var(--color-text-white);
+    display: inline-block;
     margin-bottom: 16px;
-    filter: brightness(1.2);
 }
 
 .footer__brand p {
@@ -963,7 +967,7 @@ ul {
                 rgba(247, 239, 230, 0.85),
                 rgba(247, 239, 230, 0.7)
             ),
-            url('./assets/hero-bg.jpg') no-repeat center center;
+            url('./assets/background.png') no-repeat center center;
         background-size: cover;
     }
 
@@ -1034,7 +1038,7 @@ ul {
         max-width: 100%;
     }
 
-    .footer__logo img {
+    .footer__logo {
         margin-inline: auto;
     }
 
@@ -1090,6 +1094,50 @@ ul {
 :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 3px;
+}
+
+/* ===================================================== */
+/* PREFERS REDUCED MOTION                                 */
+/* ===================================================== */
+
+/* ===================================================== */
+/* PRINT STYLES                                           */
+/* ===================================================== */
+
+@media print {
+    .header,
+    .header__burger,
+    .hero__decor,
+    .essencia__ornament,
+    .footer__ornament,
+    .contato__illustration {
+        display: none !important;
+    }
+
+    .hero {
+        min-height: auto;
+        background: none;
+    }
+
+    body {
+        color: #000;
+        background: #fff;
+        font-size: 12pt;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+
+    .footer {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .footer__social-icons {
+        display: none;
+    }
 }
 
 /* ===================================================== */

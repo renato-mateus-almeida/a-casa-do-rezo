@@ -4,6 +4,8 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
     /* --------------------------------------------------- */
     /* DOM REFERENCES                                      */
     /* --------------------------------------------------- */
@@ -274,11 +276,15 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Clear error on input */
     nomeInput.addEventListener('input', () => clearValidation(nomeInput));
     emailInput.addEventListener('input', () => clearValidation(emailInput));
-    telefoneInput.addEventListener('input', () => clearValidation(telefoneInput));
     mensagemInput.addEventListener('input', () => clearValidation(mensagemInput));
 
-    /* Telefone mask */
+    /* Telefone mask + clear validation (single listener) */
     telefoneInput.addEventListener('input', () => {
+        clearValidation(telefoneInput);
+
+        const cursor = telefoneInput.selectionStart;
+        const lengthBefore = telefoneInput.value.length;
+
         let value = telefoneInput.value.replace(/\D/g, '');
         if (value.length > 11) value = value.slice(0, 11);
 
@@ -293,6 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         telefoneInput.value = value;
+
+        const lengthAfter = value.length;
+        const newCursor = cursor + (lengthAfter - lengthBefore);
+        telefoneInput.setSelectionRange(newCursor, newCursor);
     });
 
     /* Submit handler */
@@ -319,12 +329,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 submitBtn.textContent = 'Mensagem Enviada!';
-                submitBtn.style.backgroundColor = '#27ae60';
+                submitBtn.classList.add('btn-primary--success');
 
                 setTimeout(() => {
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
-                    submitBtn.style.backgroundColor = '';
+                    submitBtn.classList.remove('btn-primary--success');
                 }, 3000);
             }, 1200);
         } else {
