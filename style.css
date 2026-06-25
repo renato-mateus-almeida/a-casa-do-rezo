@@ -236,7 +236,7 @@ ul {
 
 .hero {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     background:
@@ -384,6 +384,10 @@ ul {
     background-color: var(--color-surface);
     position: relative;
     overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: 60px;
 }
 
 .essencia__ornament {
@@ -502,6 +506,10 @@ ul {
 /* ===================================================== */
 
 .produtos {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: 60px;
     background:
         linear-gradient(
             to right,
@@ -606,6 +614,10 @@ ul {
 
 .contato {
     background-color: var(--color-surface);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: 60px;
 }
 
 .contato__grid {
@@ -949,7 +961,7 @@ ul {
 
     /* Hero */
     .hero {
-        min-height: 85vh;
+        min-height: 100vh;
         background:
             linear-gradient(
                 to bottom,
