@@ -149,16 +149,6 @@ ul {
     z-index: 1001;
 }
 
-.header__logo img {
-    width: 150px;
-    height: auto;
-    transition: width var(--transition-smooth);
-}
-
-.header--scrolled .header__logo img {
-    width: 100px;
-}
-
 .header__nav {
     display: flex;
     align-items: center;
@@ -1097,10 +1087,6 @@ ul {
 }
 
 /* ===================================================== */
-/* PREFERS REDUCED MOTION                                 */
-/* ===================================================== */
-
-/* ===================================================== */
 /* PRINT STYLES                                           */
 /* ===================================================== */
 
@@ -1133,6 +1119,10 @@ ul {
     .footer {
         background-color: #fff;
         color: #000;
+    }
+
+    .footer * {
+        color: #000 !important;
     }
 
     .footer__social-icons {

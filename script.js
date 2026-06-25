@@ -89,23 +89,40 @@ document.addEventListener('DOMContentLoaded', () => {
     /* SMOOTH SCROLL (fallback & active link)               */
     /* --------------------------------------------------- */
 
+    function scrollToSection(id) {
+        const target = document.querySelector(id);
+        if (!target) return;
+
+        const headerHeight = header.offsetHeight + 24;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth',
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', (e) => {
             const href = anchor.getAttribute('href');
             if (href === '#') return;
 
-            const target = document.querySelector(href);
-            if (!target) return;
-
             e.preventDefault();
-            const headerHeight = header.offsetHeight + 24;
-            const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth',
-            });
+            scrollToSection(href);
         });
+    });
+
+    window.addEventListener('load', () => {
+        if (window.location.hash) {
+            const id = window.location.hash;
+            scrollToSection(id);
+        }
+    });
+
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash) {
+            scrollToSection(window.location.hash);
+        }
     });
 
     /* --------------------------------------------------- */
@@ -175,6 +192,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --------------------------------------------------- */
     /* FORM VALIDATION                                      */
     /* --------------------------------------------------- */
+
+    (function setupForm() {
 
     const contactForm = document.querySelector('.contato__form');
     if (!contactForm) return;
@@ -343,4 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (firstError) firstError.focus();
         }
     });
+
+    })();
+
 });

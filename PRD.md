@@ -3,7 +3,7 @@
 Desenvolver uma landing page (one-page) moderna, elegante, responsiva e visualmente refinada para a marca **Casa do Rezo**, especializada em:
 
 * Velas artesanais
-* Essências
+* Sabonetes
 * Banhos energéticos
 * Produtos voltados à espiritualidade, autocuidado e bem-estar
 
@@ -62,13 +62,13 @@ Paleta sugerida:
 
 ```css
 :root {
-    --color-background: #f6efe7;
-    --color-surface: #fffaf5;
+    --color-background: #f7efe6;
+    --color-surface: #fffaf4;
     --color-primary: #7a5230;
     --color-primary-dark: #5a3b23;
     --color-text: #3d2b1f;
-    --color-text-light: #7c6756;
-    --color-border: #e4d6c7;
+    --color-text-light: #756353;
+    --color-border: #dcc7b3;
 }
 ```
 
@@ -169,7 +169,7 @@ Categorias:
 
 Produtos feitos manualmente para criar momentos de presença e acolhimento.
 
-## Essências
+## Sabonetes
 
 Aromas desenvolvidos para elevar a energia dos ambientes.
 
@@ -487,7 +487,7 @@ Utilize o HTML abaixo como ponto de partida e preserve sua estrutura, IDs e clas
                         >
 
                         <h3>
-                            Essências
+                            Sabonetes
                         </h3>
 
                         <p>
