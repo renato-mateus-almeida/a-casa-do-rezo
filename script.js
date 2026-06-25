@@ -92,14 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function scrollToSection(id) {
         const target = document.querySelector(id);
         if (!target) return;
-
-        const headerHeight = header.offsetHeight + 24;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth',
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
